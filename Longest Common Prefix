@@ -1,0 +1,23 @@
+class Solution {
+    public String compareStr(String s1, String s2){
+        String cmp="";
+        for(int i=0;i<s1.length()&&i<s2.length();i++)
+        {
+            if(s1.charAt(i)==s2.charAt(i))
+                cmp=cmp+s1.charAt(i);
+            else
+                return cmp;
+        }
+        return cmp;
+    }
+    public String longestCommonPrefix(String[] strs) {
+        String cmp="";
+        if(strs.length==1)
+            return strs[0];
+        cmp=compareStr(strs[0],strs[1]);
+        for(int i=2;i<strs.length;i++){
+            cmp=compareStr(cmp,strs[i]);
+        }
+        return cmp;
+    }
+}
