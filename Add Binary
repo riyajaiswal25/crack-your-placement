@@ -1,0 +1,32 @@
+class Solution {
+    public String addBinary(String a, String b) {
+      
+       
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0; // Using an integer to simplify carry handling
+        StringBuilder sb = new StringBuilder();
+
+        while (i >= 0 || j >= 0) {
+            int sum = carry;
+            if (i >= 0) {
+                sum += a.charAt(i) - '0'; // Convert char to integer
+                i--;
+            }
+            if (j >= 0) {
+                sum += b.charAt(j) - '0'; // Convert char to integer
+                j--;
+            }
+            sb.append(sum % 2); // Append the current bit
+            carry = sum / 2;    // Calculate the new carry
+        }
+
+        if (carry != 0) {
+            sb.append(carry); // Append the final carry if it's not zero
+        }
+
+        return sb.reverse().toString(); // Reverse the result before returning
+    
+
+    }
+} 
